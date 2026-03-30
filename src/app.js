@@ -12,6 +12,10 @@ import { apiRouter } from "./routes/index.js";
 
 const app = express();
 
+// Cloudflare Tunnel / reverse proxies forward client IP information via
+// X-Forwarded-* headers, so Express must trust the proxy chain.
+app.set("trust proxy", 1);
+
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 300,
