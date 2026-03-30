@@ -1,0 +1,32 @@
+{
+  "name": "nature-republic-backend",
+  "version": "1.0.0",
+  "description": "Backend API for the Nature Republic e-commerce platform.",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/server.js",
+    "start": "node src/server.js",
+    "seed": "node src/database/seed/seed.js",
+    "create-admin": "node src/scripts/create-admin.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "google-auth-library": "^10.6.2",
+    "helmet": "^8.0.0",
+    "jose": "^6.2.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.10.0",
+    "sharp": "^0.34.5",
+    "stripe": "^17.5.0",
+    "zod": "^3.24.1"
+  }
+}

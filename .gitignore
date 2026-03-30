@@ -1,0 +1,11 @@
+node_modules
+.env
+dist
+coverage
+uploads/*
+!uploads/products/
+!uploads/categories/
+!uploads/banners/
+!uploads/blog/
+!uploads/users/
+!uploads/reviews/
