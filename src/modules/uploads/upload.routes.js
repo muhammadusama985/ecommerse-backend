@@ -1,4 +1,5 @@
 import { Router } from "express";
+import fs from "fs";
 import multer from "multer";
 import path from "path";
 import { authenticate, requireRole } from "../../middlewares/auth.js";
@@ -13,7 +14,15 @@ const storage = multer.diskStorage({
       return cb(new Error("Invalid upload folder."));
     }
 
-    return cb(null, path.join("uploads", folder));
+    const destinationPath = path.join("uploads", folder);
+
+    try {
+      fs.mkdirSync(destinationPath, { recursive: true });
+    } catch (error) {
+      return cb(error);
+    }
+
+    return cb(null, destinationPath);
   },
   filename: (_req, file, cb) => {
     const extension = path.extname(file.originalname);
