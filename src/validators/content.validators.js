@@ -56,6 +56,7 @@ const createBannerSchema = z.object({
   body: z.object({
     title: z.string().min(2),
     subtitle: z.string().optional(),
+    description: z.string().optional(),
     image: z.string().optional(),
     ctaLabel: z.string().optional(),
     ctaHref: z.string().optional(),
@@ -73,6 +74,7 @@ const updateBannerSchema = z.object({
   body: z.object({
     title: z.string().min(2).optional(),
     subtitle: z.string().optional(),
+    description: z.string().optional(),
     image: z.string().optional(),
     ctaLabel: z.string().optional(),
     ctaHref: z.string().optional(),

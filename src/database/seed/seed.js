@@ -85,6 +85,8 @@ const banners = [
   {
     title: "Discover Your Natural Beauty",
     subtitle: "Premium beauty products that enhance your natural glow.",
+    description:
+      "From skincare essentials to luxury makeup, find everything you need to feel confident and beautiful with Nature Republic.",
     ctaLabel: "Shop Now",
     ctaHref: "/best-sellers",
     placement: "hero",

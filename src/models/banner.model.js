@@ -4,6 +4,7 @@ const bannerSchema = new mongoose.Schema(
   {
     title: { type: String, required: true, trim: true },
     subtitle: { type: String, trim: true },
+    description: { type: String, trim: true },
     image: { type: String, trim: true },
     ctaLabel: { type: String, trim: true },
     ctaHref: { type: String, trim: true },
