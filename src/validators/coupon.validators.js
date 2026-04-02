@@ -18,6 +18,7 @@ const createCouponSchema = z.object({
 
 const updateCouponSchema = z.object({
   body: z.object({
+    code: z.string().min(3).optional(),
     description: z.string().optional(),
     discountType: z.enum(["percentage", "fixed"]).optional(),
     discountValue: z.number().positive().optional(),

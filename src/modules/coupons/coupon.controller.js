@@ -34,7 +34,19 @@ const createCoupon = asyncHandler(async (req, res) => {
 });
 
 const updateCoupon = asyncHandler(async (req, res) => {
-  const coupon = await Coupon.findByIdAndUpdate(req.params.couponId, req.validated.body, {
+  const payload = { ...req.validated.body };
+
+  if (payload.code) {
+    payload.code = payload.code.toUpperCase().trim();
+    const existingCoupon = await Coupon.findOne({ code: payload.code, _id: { $ne: req.params.couponId } });
+    if (existingCoupon) {
+      const error = new Error("Coupon code already exists.");
+      error.statusCode = 409;
+      throw error;
+    }
+  }
+
+  const coupon = await Coupon.findByIdAndUpdate(req.params.couponId, payload, {
     new: true,
     runValidators: true,
   });
