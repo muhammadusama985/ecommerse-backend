@@ -4,7 +4,7 @@ const createCategorySchema = z.object({
   body: z.object({
     name: z.string().min(2),
     description: z.string().optional(),
-    parentId: z.string().optional(),
+    parentId: z.string().nullable().optional(),
     image: z.string().optional(),
     sortOrder: z.number().optional(),
   }),
